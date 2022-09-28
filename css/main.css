@@ -1,0 +1,60 @@
+:root{
+	--width-ratio: 70%;
+}
+
+
+body{
+	margin: 0;
+}
+
+/*header*/
+
+header{
+	background-color: #b5e7a0;
+	display: flex;
+}
+
+.home-header, .login-header{
+	width: var(--width-ratio);
+	min-width: 500px;
+	margin: auto;
+}
+
+.home-header-right{
+	display: inline-block;
+}
+
+.search{
+	display: inline-block;
+}
+
+.home-header-upper-auth{
+	display: inline-block;
+}
+
+
+.home-header-bottom li{
+	display: inline-block;
+}
+
+/*banner*/
+.home-banner{
+	background-color: yellow;
+	height: 500px;
+}
+
+
+/*main*/
+main{
+	width: var(--width-ratio);
+	margin: auto;
+}
+
+footer{
+	height: 100px;
+	background-color: grey;
+	position: fixed;
+}
+
+/*login*/
+log
