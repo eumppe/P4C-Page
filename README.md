@@ -1,7 +1,7 @@
 PHP 서버 실행시키는 법
 1. cmd창을 열어서
 2. 경로를 프로젝트 폴더로 옮기고
-3. php -S localhost:<port>
+3. php -S localhost:\<port\>
 
 mySQL 서버 포트는 기본값 3306을 사용합니다.
 
