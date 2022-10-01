@@ -17,9 +17,9 @@
 		<form class="login-info" action="/redi/signup-check.php" method="post">
 			<fieldset>
 				<legend>Signup</legend>
-				<input type="text" name="userid" placeholder="userid" required>
-				<input type="password" name="password" placeholder="password" required>
-				<input type="email" name="email" placeholder="email" required>
+				<input type="text" name="userid" placeholder="userid" required><br/>
+				<input type="password" name="password" placeholder="password" required><br/>
+				<input type="email" name="email" placeholder="email" required><input type="button" name="verify"><br/>
 				<input type="submit" name="login-submit">
 			</fieldset>
 		</form>

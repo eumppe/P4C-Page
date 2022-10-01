@@ -14,7 +14,7 @@
 		</section>
 	</header>
 	<main>
-		<form class="login-info" action="/redi/login-check.php">
+		<form class="login-info" action="/redi/login-check.php" method="post">
 			<fieldset>
 				<legend>Login</legend>
 				<input type="text" name="userid" placeholder="userid">

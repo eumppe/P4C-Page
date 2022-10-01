@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,8 +20,14 @@
 							<input type="button" name="search-submit">
 						</form>
 						<div class="home-header-upper-auth">
-							<a href="/pages/login.php">login</a>
-							<a href="/pages/signup.php">sign up</a>
+							<?php
+							if ($_SESSION==null){
+								echo '<a href="/pages/login.php">login</a>
+								<a href="/pages/signup.php">sign up</a>';
+							}else{
+								echo '<a href="/redi/logout.php">logout</a>';
+							}
+							?>
 						</div>
 					</div>
 					<div class="home-header-bottom">
