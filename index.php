@@ -5,21 +5,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Eumppe</title>
-		<link rel="stylesheet" href="css\main.css">
+		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
 		<header>
 			<section class="home-header">
-				<img class=" home-header-icon"src="img\Eumppe.png"/>
+				<img class=" home-header-icon"src="/img/Eumppe.png"/>
 				<div class="home-header-right">
 					<div class="home-header-upper">
-						<form class="search" action="search.php">
+						<form class="search" action="/pages/search.php">
 							<input type="text" name="search-keyword">
 							<input type="button" name="search-submit">
 						</form>
 						<div class="home-header-upper-auth">
-							<a href="login.php">login</a>
-							<a href="signup.php">sign up</a>
+							<a href="/pages/login.php">login</a>
+							<a href="/pages/signup.php">sign up</a>
 						</div>
 					</div>
 					<div class="home-header-bottom">
