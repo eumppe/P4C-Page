@@ -12,7 +12,8 @@
 		.$password."', '"
 		.$email."')";
 		mysqli_query($conn,$sql);
+		header("Location: /index.php");
 	}catch(Exception $e){
-
+		header("Location: /pages/signup.php");
 	}
 ?>
