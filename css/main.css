@@ -14,7 +14,7 @@ header{
 	display: flex;
 }
 
-.home-header, .login-header{
+.home-header, .login-header, .signup-header{
 	width: var(--width-ratio);
 	min-width: 500px;
 	margin: auto;

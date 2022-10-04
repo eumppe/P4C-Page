@@ -34,7 +34,7 @@ session_start();
 					</div>
 					<div class="home-header-bottom">
 						<ul class="home-header-bottom-button">
-							<li><a href="pages/article-list.php">menu 1</a></li>
+							<li><a href="">menu 1</a></li>
 							<li><a href="">menu 2</a></li>
 							<li><a href="">menu 3</a></li>
 							<li><a href="">menu 4</a></li>
@@ -43,18 +43,8 @@ session_start();
 				</div>
 			</section>
 		</header>
-		<div class="home-banner">
-			
-		</div>
 		<main>
-			<section class="home-recentnews">
-				<h2>Recent News</h2>
-				<ul>
-					<li><a href="">news title 1</a></li>
-					<li><a href="">news title 2</a></li>
-					<li><a href="">news title 3</a></li>
-				</ul>
-			</section>
+			<a href="/pages/write-article.php">write</a>
 		</main>
 		<footer>
 			

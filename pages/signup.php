@@ -10,19 +10,28 @@
 <body>
 	<header>
 		<section class="signup-header">
-			<img src="/img/eumppe.png"/>
+			<a href="/index.php">
+					<img class=" home-header-icon"src="/img/Eumppe.png"/>
+				</a>
 		</section>
 	</header>
 	<main>
-		<form class="login-info" action="/redi/signup-check.php" method="post">
+		<fieldset>
+			<legend>Signup</legend>
 			<fieldset>
-				<legend>Signup</legend>
-				<input type="text" name="userid" placeholder="userid" required><br/>
-				<input type="password" name="password" placeholder="password" required><br/>
-				<input type="email" name="email" placeholder="email" required><input type="button" name="verify"><br/>
-				<input type="submit" name="login-submit">
+				<form class="verify-email" action="/redi/verify-email.php" method="post">
+					<input type="email" name="email" placeholder="email" required>
+					<input type="submit" name="verify-email" value="verify">
+				</form>
 			</fieldset>
-		</form>
+			<fieldset disabled>
+				<form class="login-info" action="/redi/signup-check.php" method="post" disabled="true">
+					<input type="text" name="userid" placeholder="userid" required><br/>
+					<input type="password" name="password" placeholder="password" required><br/>
+					<input type="submit" name="login-submit">
+				</form>
+			</fieldset>
+		</fieldset>
 	</main>
 </body>
 </html>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login-Eumppe</title>
+	<title>Article-Eumppe</title>
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
@@ -16,13 +15,10 @@
 		</section>
 	</header>
 	<main>
-		<form class="login-info" action="/redi/login-check.php" method="post">
-			<fieldset>
-				<legend>Login</legend>
-				<input type="text" name="userid" placeholder="userid">
-				<input type="password" name="password" placeholder="password">
-				<input type="submit" name="login-submit">
-			</fieldset>
+		<form action="/redi/article-check.php" method="post">
+			title:<input type="text" name="title"><br/>
+			<textarea name="article"></textarea>
+			<input type="submit" name="article-submit">
 		</form>
 	</main>
 </body>

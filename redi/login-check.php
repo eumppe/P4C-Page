@@ -1,6 +1,6 @@
 <?php 
 	$pw=getenv('MySQLrootPW');
-	$conn=mysqli_connect('localhost','root', $pw,'eumppedb');
+	$conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 
 	$userid=$_POST['userid'];
 	$password=$_POST['password'];
