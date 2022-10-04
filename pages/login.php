@@ -22,6 +22,7 @@
 				<input type="text" name="userid" placeholder="userid">
 				<input type="password" name="password" placeholder="password">
 				<input type="submit" name="login-submit">
+				<p><?php echo ($_GET['msg'])?></p>
 			</fieldset>
 		</form>
 	</main>

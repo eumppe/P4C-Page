@@ -10,13 +10,16 @@
 		."userid='".$userid."'AND "
 		."password='".$password."'";
 		$result=mysqli_query($conn,$sql);
-		if($result!=null){
+		$row=mysqli_fetch_array($result);
+		if($row["userid"]!=null){
 			$list=mysqli_fetch_array($result);
 			session_start();
 			$_SESSION['userid']=$list;
+			header("Location: /index.php");
+		}else{
+			header("Location: /pages/login.php?msg=failed to login");
 		}
 	}catch(Exception $e){
 
 	}
-	header("Location: /index.php")
 ?>
