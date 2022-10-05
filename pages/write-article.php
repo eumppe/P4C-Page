@@ -1,3 +1,9 @@
+<?php
+session_start();
+if($_SESSION["userid"]==null){
+	header("Location: /pages/access-denied.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +22,12 @@
 	</header>
 	<main>
 		<form action="/redi/article-check.php" method="post">
+			<label><input type="radio" name="forum" value="1" id="choice1" checked>Notice</label>
+			<label><input type="radio" name="forum" value="2" id="choice2">Community</label>
+			<br/>
 			title:<input type="text" name="title"><br/>
-			<textarea name="article"></textarea>
+			<textarea name="article"></textarea><br/>
+			<input type="file" name="file" multiple><br/>
 			<input type="submit" name="article-submit">
 		</form>
 	</main>

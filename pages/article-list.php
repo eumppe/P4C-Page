@@ -1,5 +1,7 @@
 <?php 
 session_start();
+$pw=getenv('MySQLrootPW');
+$conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,8 +36,8 @@ session_start();
 					</div>
 					<div class="home-header-bottom">
 						<ul class="home-header-bottom-button">
-							<li><a href="">menu 1</a></li>
-							<li><a href="">menu 2</a></li>
+							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
+							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
 							<li><a href="">menu 3</a></li>
 							<li><a href="">menu 4</a></li>
 						</ul>
@@ -45,6 +47,38 @@ session_start();
 		</header>
 		<main>
 			<a href="/pages/write-article.php">write</a>
+			<table>
+				<?php
+				$forum=$_GET['forum'];
+				if($forum==1){
+					echo("<th>Notice</th>");
+				}else if($forum==2){
+					echo("<th>Community</th>");
+				}
+
+				$sql="SELECT * FROM articles WHERE forum=".$forum." LIMIT 10";
+				$result=mysqli_query($conn,$sql);
+
+				for($i=0;$i<mysqli_num_rows($result);$i++){
+					$row=mysqli_fetch_array($result);
+
+					echo("<tr>");
+
+					echo("<td>");
+					echo("<a href=\"/pages/show-article.php?idx=".$row['idx']."\">");
+					echo($row['title']);
+					echo("</a>");
+					echo("</td>");
+
+					echo("<td>");	
+					echo($row['times']);
+					echo("</td>");
+
+					echo("</a>");
+					echo("</tr>");
+				}
+				?>
+			</table>
 		</main>
 		<footer>
 			

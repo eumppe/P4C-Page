@@ -15,3 +15,14 @@ CREATE table emailverify(
     validfrom timestamp,
     verified bool default FALSE
 );
+
+CREATE table articles(
+	idx INT PRIMARY KEY AUTO_INCREMENT,
+    forum INT,
+    author int,
+    title NVARCHAR(100),
+    article NVARCHAR(3000),
+    files BLOB DEFAULT null,
+    times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+select * from articles;

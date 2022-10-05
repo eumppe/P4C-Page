@@ -12,9 +12,9 @@
 		$result=mysqli_query($conn,$sql);
 		$row=mysqli_fetch_array($result);
 		if($row["userid"]!=null){
-			$list=mysqli_fetch_array($result);
 			session_start();
-			$_SESSION['userid']=$list;
+			$_SESSION['idx']=$row['idx'];
+			$_SESSION['userid']=$row['userid'];
 			header("Location: /index.php");
 		}else{
 			header("Location: /pages/login.php?msg=failed to login");

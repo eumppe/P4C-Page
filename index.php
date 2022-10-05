@@ -34,8 +34,8 @@ session_start();
 					</div>
 					<div class="home-header-bottom">
 						<ul class="home-header-bottom-button">
-							<li><a href="pages/article-list.php">menu 1</a></li>
-							<li><a href="">menu 2</a></li>
+							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
+							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
 							<li><a href="">menu 3</a></li>
 							<li><a href="">menu 4</a></li>
 						</ul>
