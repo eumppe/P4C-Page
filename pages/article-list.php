@@ -74,6 +74,14 @@ $forum=$_GET['forum'];
 					echo("</a>");
 					echo("</td>");
 
+					$user_sql="SELECT userid FROM users WHERE idx=".$row['author'];
+					$user_result=mysqli_query($conn,$user_sql);
+					$user_row=mysqli_fetch_array($user_result);
+
+					echo("<td>");	
+					echo("작성자 : ".$user_row['userid']);
+					echo("</td>");
+
 					echo("<td>");	
 					echo($row['times']);
 					echo("</td>");
