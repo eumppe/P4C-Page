@@ -20,9 +20,8 @@ CREATE table articles(
 	idx INT PRIMARY KEY AUTO_INCREMENT,
     forum INT,
     author int,
-    title NVARCHAR(100),
-    article NVARCHAR(3000),
+    title VARCHAR(100) CHARACTER SET utf8mb4,
+    article VARCHAR(3000) CHARACTER SET utf8mb4,
     files BLOB DEFAULT null,
     times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-select * from articles;

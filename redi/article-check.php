@@ -16,6 +16,15 @@ $sql="INSERT INTO articles(
 	.$_POST['article']."')";
 mysqli_query($conn,$sql);
 
+$article_id=$conn->insert_id;
+
+$sql="CREATE TABLE comment".$article_id."(
+idx INT PRIMARY KEY AUTO_INCREMENT,
+writer INT NOT NULL,
+content VARCHAR(300) CHARACTER SET utf8mb4 NOT NULL,
+times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+)";
+mysqli_query($conn,$sql);
 
 header("Location: /pages/article-list.php?forum=".$_POST['forum']);
 ?>

@@ -29,7 +29,7 @@ $forum=$_GET['forum'];
 			<label><input type="radio" name="forum" value="4" id="choice2" <?php if($forum==4){echo("checked");}?>>Questions</label>
 			<br/>
 			title:<input type="text" name="title"><br/>
-			<textarea name="article"></textarea><br/>
+			<textarea class="article-input" name="article"></textarea><br/>
 			<input type="file" name="file" multiple><br/>
 			<input type="submit" name="article-submit">
 		</form>

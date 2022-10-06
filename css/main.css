@@ -2,10 +2,20 @@
 	--width-ratio: 70%;
 }
 
-textarea {
+.article-input {
    resize: vertical;
    width: 70%;
    height: 500px;
+}
+
+.comment-input {
+   resize: none;
+   width: 70%;
+   height: 50px;
+}
+
+.article{
+	margin-bottom: 50px;
 }
 
 body{

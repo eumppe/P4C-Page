@@ -72,10 +72,37 @@ $idx=$_GET['idx'];
 			echo ("<p> 작성자: ".$user_row['userid']."</p>");
 			echo ("<p> 작성일: ".$row['times']."</p>");
 
-			echo ("<div> ".nl2br($row['article'])."</div>");
+			echo ("<div class='article'> ".nl2br($row['article'])."</div>");
 
 
 			?>
+			<!--Comments-->
+			<!--write-->
+			<?php
+			if($_SESSION["userid"]!=null){
+				echo('
+				<form action="/redi/comment-check.php" method="post">
+				<input type="hidden" name="idx" value="'. ($_GET['idx']).'">
+				<textarea class="comment-input" name="comment"></textarea><br/>
+				<input type="submit" name="comment-submit">');
+			}
+			?>
+			<!--show-->
+			<?php 
+			$sql="SELECT * FROM comment".$idx;
+			$result=mysqli_query($conn, $sql);
+
+			while($row=mysqli_fetch_array($result)){
+				$user_sql="SELECT userid FROM users WHERE idx=".$row['writer'];
+				$user_result=mysqli_query($conn,$user_sql);
+				$user_row=mysqli_fetch_array($user_result);
+				echo("<div class='comment-single'><p class='comment-userid'>".$user_row['userid'].
+					" | ".$row['times']."</p>");
+				echo("<p class='comment-content'>".$row['content']."</p></div>");
+			}
+
+			?>
+		</form>
 		</main>
 		<footer>
 			
