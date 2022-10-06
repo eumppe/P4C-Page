@@ -36,8 +36,8 @@ session_start();
 						<ul class="home-header-bottom-button">
 							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
 							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
-							<li><a href="">menu 3</a></li>
-							<li><a href="">menu 4</a></li>
+							<li><a href="/pages/article-list.php?forum=3">Random</a></li>
+							<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
 						</ul>
 					</div>
 				</div>

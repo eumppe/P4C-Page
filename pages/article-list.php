@@ -2,6 +2,7 @@
 session_start();
 $pw=getenv('MySQLrootPW');
 $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
+$forum=$_GET['forum'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,22 +39,25 @@ $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 						<ul class="home-header-bottom-button">
 							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
 							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
-							<li><a href="">menu 3</a></li>
-							<li><a href="">menu 4</a></li>
+							<li><a href="/pages/article-list.php?forum=3">Random</a></li>
+							<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
 						</ul>
 					</div>
 				</div>
 			</section>
 		</header>
 		<main>
-			<a href="/pages/write-article.php">write</a>
+			<a href=<?php echo("'/pages/write-article.php?forum=".$forum."'");?>>write</a>
 			<table>
 				<?php
-				$forum=$_GET['forum'];
 				if($forum==1){
 					echo("<th>Notice</th>");
 				}else if($forum==2){
 					echo("<th>Community</th>");
+				}else if($forum==3){
+					echo("<th>Random</th>");
+				}else if($forum==4){
+					echo("<th>Questions</th>");
 				}
 
 				$sql="SELECT * FROM articles WHERE forum=".$forum." LIMIT 10";

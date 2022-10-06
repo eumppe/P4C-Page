@@ -3,6 +3,7 @@ session_start();
 if($_SESSION["userid"]==null){
 	header("Location: /pages/access-denied.php");
 }
+$forum=$_GET['forum'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,8 +23,10 @@ if($_SESSION["userid"]==null){
 	</header>
 	<main>
 		<form action="/redi/article-check.php" method="post">
-			<label><input type="radio" name="forum" value="1" id="choice1" checked>Notice</label>
-			<label><input type="radio" name="forum" value="2" id="choice2">Community</label>
+			<label><input type="radio" name="forum" value="1" id="choice1" <?php if($forum==1){echo("checked");}?>>Notice</label>
+			<label><input type="radio" name="forum" value="2" id="choice2" <?php if($forum==2 || $forum==null){echo("checked");}?>>Community</label>
+			<label><input type="radio" name="forum" value="3" id="choice1" <?php if($forum==3){echo("checked");}?>>Random</label>
+			<label><input type="radio" name="forum" value="4" id="choice2" <?php if($forum==4){echo("checked");}?>>Questions</label>
 			<br/>
 			title:<input type="text" name="title"><br/>
 			<textarea name="article"></textarea><br/>
