@@ -26,7 +26,8 @@ ubuntu에서는 sendmail을 설치해야 합니다.<br>
 <h2>PHP 서버 실행시키는 법</h2>
 1. ubuntu 터미널을 열어서<br>
 2. 경로를 프로젝트 폴더로 옮기고<br>
-3. php -S localhost:\<port\><br>
+3. sudo php -S localhost:\<port\><br>
+(sudo를 사용하는 이유는 파일 업로드를 위해 mkdir할 권한이 필요하기 때문)<br>
 (아파치는 쓰지 않습니다.)<br>
 <br>
 mySQL 서버 포트는 기본값 3306을 사용합니다.<br>

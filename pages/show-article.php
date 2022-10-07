@@ -23,7 +23,7 @@ if($row=mysqli_fetch_array($result)){
 	$result=mysqli_query($conn, $sql);
 	$time_diff_row=mysqli_fetch_array($result);
 
-	if($time_diff_row[0]>1){
+	if($time_diff_row[0]>0){
 		$update_view=true;
 		$sql="UPDATE view".$idx." SET times=NOW() WHERE ip=(INET_ATON('".$ip."'))";
 		mysqli_query($conn,$sql);
@@ -108,6 +108,10 @@ if($update_view){
 			echo ("<p> 작성자: ".$user_row['userid']."</p>");
 			echo ("<p> 작성일: ".$row['times']."</p>");
 			echo ("<p> 조회수: ".$row['views']."</p>");
+
+			if ($row['files']!=null){
+				echo ("Attached file: <a href='/uploads/".$idx."/".$row['files']."'>".$row['files']."</a>");
+			}
 
 			echo ("<div class='article'> ".nl2br($row['article'])."</div>");
 

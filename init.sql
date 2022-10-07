@@ -22,7 +22,7 @@ CREATE table articles(
     author int,
     title VARCHAR(100) CHARACTER SET utf8mb4,
     article VARCHAR(3000) CHARACTER SET utf8mb4,
-    files BLOB DEFAULT null,
+    files VARCHAR(300) CHARACTER SET utf8mb4,
     times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     views INT not null default 0
 );

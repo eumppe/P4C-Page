@@ -22,7 +22,7 @@ $forum=$_GET['forum'];
 		</section>
 	</header>
 	<main>
-		<form action="/redi/article-check.php" method="post">
+		<form action="/redi/article-check.php" method="post" enctype="multipart/form-data">
 			<label><input type="radio" name="forum" value="1" id="choice1" <?php if($forum==1){echo("checked");}?>>Notice</label>
 			<label><input type="radio" name="forum" value="2" id="choice2" <?php if($forum==2 || $forum==null){echo("checked");}?>>Community</label>
 			<label><input type="radio" name="forum" value="3" id="choice1" <?php if($forum==3){echo("checked");}?>>Random</label>
@@ -30,7 +30,8 @@ $forum=$_GET['forum'];
 			<br/>
 			title:<input type="text" name="title"><br/>
 			<textarea class="article-input" name="article"></textarea><br/>
-			<input type="file" name="file" multiple><br/>
+			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+			<input type="file" name="file"><br/>
 			<input type="submit" name="article-submit">
 		</form>
 	</main>
