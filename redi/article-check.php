@@ -26,5 +26,16 @@ times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 )";
 mysqli_query($conn,$sql);
 
+$sql="CREATE TABLE view".$article_id."(
+ip INT PRIMARY KEY,
+times timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+)";
+mysqli_query($conn,$sql);
+
+$sql="CREATE TABLE like".$article_id."(
+user INT PRIMARY KEY
+)";
+mysqli_query($conn,$sql);
+
 header("Location: /pages/article-list.php?forum=".$_POST['forum']);
 ?>

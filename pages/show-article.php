@@ -3,6 +3,38 @@ session_start();
 $pw=getenv('MySQLrootPW');
 $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 $idx=$_GET['idx'];
+
+$sql="SELECT * FROM like".$idx;
+$like_result=mysqli_query($conn,$sql);
+$total_like=mysqli_num_rows($like_result);
+
+#count view
+$update_view=false;
+
+$ip=$_SERVER['REMOTE_ADDR'];
+$sql="SELECT * FROM view".$idx." WHERE ip= (INET_ATON('".$ip."'))";
+$result=mysqli_query($conn,$sql);
+if($row=mysqli_fetch_array($result)){
+	$sql="SELECT TIMESTAMPDIFF(HOUR,'".$row['times']."',NOW())";
+	$result=mysqli_query($conn, $sql);
+	$time_diff_row=mysqli_fetch_array($result);
+
+	if($time_diff_row[0]>1){
+		$update_view=true;
+		$sql="UPDATE view".$idx." SET times=NOW() WHERE ip=(INET_ATON('".$ip."'))";
+		mysqli_query($conn,$sql);
+	}
+
+}else{
+	$update_view=true;
+	$sql="INSERT INTO view".$idx."(ip) VALUES(INET_ATON('".$ip."'))";
+	mysqli_query($conn,$sql);
+}
+
+if($update_view){
+	$sql="UPDATE articles SET views=views+1 WHERE idx=".$idx;
+	mysqli_query($conn,$sql);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,6 +103,7 @@ $idx=$_GET['idx'];
 			echo ("<h1>".$row['title']."</h1>");
 			echo ("<p> 작성자: ".$user_row['userid']."</p>");
 			echo ("<p> 작성일: ".$row['times']."</p>");
+			echo ("<p> 조회수: ".$row['views']."</p>");
 
 			echo ("<div class='article'> ".nl2br($row['article'])."</div>");
 
