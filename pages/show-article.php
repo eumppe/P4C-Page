@@ -8,6 +8,10 @@ $sql="SELECT * FROM like".$idx;
 $like_result=mysqli_query($conn,$sql);
 $total_like=mysqli_num_rows($like_result);
 
+$sql="SELECT * FROM like".$idx." WHERE user=".$_SESSION['idx'];
+$result=mysqli_query($conn,$sql);
+$i_like=(mysqli_fetch_array($result)!=null);
+
 #count view
 $update_view=false;
 
@@ -109,17 +113,23 @@ if($update_view){
 
 
 			?>
+			<!--like-->
+		<form class="like" action="/redi/like-check.php" method="post">
+			<input type="hidden" name="idx" value="<?php echo($idx);?>">
+			<input type="submit" name="like" value="like: <?php echo($total_like);?>" <?php if($i_like){echo("style='background-color: red; color:white;'");}?>>
+		</form>
 			<!--Comments-->
 			<!--write-->
+		<form action="/redi/comment-check.php" method="post">
 			<?php
 			if($_SESSION["userid"]!=null){
 				echo('
-				<form action="/redi/comment-check.php" method="post">
 				<input type="hidden" name="idx" value="'. ($_GET['idx']).'">
 				<textarea class="comment-input" name="comment"></textarea><br/>
 				<input type="submit" name="comment-submit">');
 			}
 			?>
+		</form>
 			<!--show-->
 			<?php 
 			$sql="SELECT * FROM comment".$idx;
@@ -135,7 +145,6 @@ if($update_view){
 			}
 
 			?>
-		</form>
 		</main>
 		<footer>
 			
