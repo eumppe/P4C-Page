@@ -60,11 +60,10 @@ $forum=$_GET['forum'];
 					echo("<th>Questions</th>");
 				}
 
-				$sql="SELECT * FROM articles WHERE forum=".$forum." LIMIT 10";
+				$sql="SELECT * FROM articles WHERE forum=".$forum." ORDER BY times DESC";
 				$result=mysqli_query($conn,$sql);
 
-				for($i=0;$i<mysqli_num_rows($result);$i++){
-					$row=mysqli_fetch_array($result);
+				while($row=mysqli_fetch_array($result)){
 
 					echo("<tr>");
 
@@ -80,6 +79,10 @@ $forum=$_GET['forum'];
 
 					echo("<td>");	
 					echo("작성자 : ".$user_row['userid']);
+					echo("</td>");
+
+					echo("<td>");	
+					echo("조회수 : ".$row['views']);
 					echo("</td>");
 
 					echo("<td>");	
