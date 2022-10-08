@@ -8,9 +8,11 @@ $sql="SELECT * FROM like".$idx;
 $like_result=mysqli_query($conn,$sql);
 $total_like=mysqli_num_rows($like_result);
 
-$sql="SELECT * FROM like".$idx." WHERE user=".$_SESSION['idx'];
-$result=mysqli_query($conn,$sql);
-$i_like=(mysqli_fetch_array($result)!=null);
+if($_SESSION['idx']!=null){
+	$sql="SELECT * FROM like".$idx." WHERE user=".$_SESSION['idx'];
+	$result=mysqli_query($conn,$sql);
+	$i_like=(mysqli_fetch_array($result)!=null);
+}
 
 #count view
 $update_view=false;
@@ -49,40 +51,40 @@ if($update_view){
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
-		<header>
-			<section class="home-header">
-				<a href="/index.php">
-					<img class=" home-header-icon"src="/img/Eumppe.png"/>
-				</a>
-				<div class="home-header-right">
-					<div class="home-header-upper">
-						<form class="search" action="/pages/search.php">
-							<input type="text" name="search-keyword">
-							<input type="button" name="search-submit">
-						</form>
-						<div class="home-header-upper-auth">
-							<?php
-							if ($_SESSION==null){
-								echo '<a href="/pages/login.php">login</a>
-								<a href="/pages/signup.php">sign up</a>';
-							}else{
-								echo '<a href="/redi/logout.php">logout</a>';
-							}
-							?>
+			<header>
+				<section class="home-header wilson">
+					<a href="/index.php">
+						<img class="home-header-icon" src="/img/Eumppe.png"/>
+					</a>
+					<div class="home-header-right">
+						<div class="home-header-bottom">
+							<ul class="home-header-bottom-button">
+								<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
+								<li><a href="/pages/article-list.php?forum=2">Community</a></li>
+								<li><a href="/pages/article-list.php?forum=3">Random</a></li>
+								<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
+							</ul>
+						</div>
+						<div class="home-header-upper">
+							<form class="search" action="/pages/search.php">
+								<input class="search-index" type="text" name="search-keyword">
+								<input type="image" src="/img/search.png" alt="검색" style="width:1.5rem;height:1.5rem;">
+							</form>
+							<div class="home-header-upper-auth">
+								<?php
+								if ($_SESSION==null){
+									echo '<a href="/pages/login.php">login</a>
+									<a href="/pages/signup.php">sign up</a>';
+								}else{
+									echo '<a href="/redi/logout.php">logout</a>';
+								}
+								?>
+							</div>
 						</div>
 					</div>
-					<div class="home-header-bottom">
-						<ul class="home-header-bottom-button">
-							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
-							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
-							<li><a href="/pages/article-list.php?forum=3">Random</a></li>
-							<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
-		</header>
-		<main>
+				</section>
+			</header>
+		<main class="william">
 			<?php
 			$sql="SELECT * FROM articles WHERE idx=".$idx;
 			$result=mysqli_query($conn, $sql);

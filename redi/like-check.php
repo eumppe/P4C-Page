@@ -1,5 +1,10 @@
 <?php 
 session_start();
+
+if($_SESSION['idx']==null){
+	header("Location: /pages/access-denied.php");
+}
+
 $pw=getenv('MySQLrootPW');
 $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 $idx=$_POST['idx'];

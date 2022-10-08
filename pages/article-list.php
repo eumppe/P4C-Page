@@ -13,42 +13,42 @@ $forum=$_GET['forum'];
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
-		<header>
-			<section class="home-header">
-				<a href="/index.php">
-					<img class=" home-header-icon"src="/img/Eumppe.png"/>
-				</a>
-				<div class="home-header-right">
-					<div class="home-header-upper">
-						<form class="search" action="/pages/search.php">
-							<input type="text" name="search-keyword">
-							<input type="button" name="search-submit">
-						</form>
-						<div class="home-header-upper-auth">
-							<?php
-							if ($_SESSION==null){
-								echo '<a href="/pages/login.php">login</a>
-								<a href="/pages/signup.php">sign up</a>';
-							}else{
-								echo '<a href="/redi/logout.php">logout</a>';
-							}
-							?>
+			<header>
+				<section class="home-header wilson">
+					<a href="/index.php">
+						<img class="home-header-icon" src="/img/Eumppe.png"/>
+					</a>
+					<div class="home-header-right">
+						<div class="home-header-bottom">
+							<ul class="home-header-bottom-button">
+								<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
+								<li><a href="/pages/article-list.php?forum=2">Community</a></li>
+								<li><a href="/pages/article-list.php?forum=3">Random</a></li>
+								<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
+							</ul>
+						</div>
+						<div class="home-header-upper">
+							<form class="search" action="/pages/search.php">
+								<input class="search-index" type="text" name="search-keyword">
+								<input type="image" src="/img/search.png" alt="검색" style="width:1.5rem;height:1.5rem;">
+							</form>
+							<div class="home-header-upper-auth">
+								<?php
+								if ($_SESSION==null){
+									echo '<a href="/pages/login.php">login</a>
+									<a href="/pages/signup.php">sign up</a>';
+								}else{
+									echo '<a href="/redi/logout.php">logout</a>';
+								}
+								?>
+							</div>
 						</div>
 					</div>
-					<div class="home-header-bottom">
-						<ul class="home-header-bottom-button">
-							<li><a href="/pages/article-list.php?forum=1">Notice</a></li>
-							<li><a href="/pages/article-list.php?forum=2">Community</a></li>
-							<li><a href="/pages/article-list.php?forum=3">Random</a></li>
-							<li><a href="/pages/article-list.php?forum=4">Questions</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
-		</header>
-		<main>
+				</section>
+			</header>
+		<main class="william">
 			<a href=<?php echo("'/pages/write-article.php?forum=".$forum."'");?>>write</a>
-			<table>
+			<table style="width:100%">
 				<?php
 				if($forum==1){
 					echo("<th>Notice</th>");
@@ -81,7 +81,7 @@ $forum=$_GET['forum'];
 					echo("작성자 : ".$user_row['userid']);
 					echo("</td>");
 
-					echo("<td>");	
+					echo("<td>");
 					echo("조회수 : ".$row['views']);
 					echo("</td>");
 

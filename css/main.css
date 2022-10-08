@@ -1,5 +1,14 @@
 :root{
-	--width-ratio: 70%;
+	--width-ratio: 75%;
+}
+
+
+* {
+	box-sizing:  border-box;
+	padding: 0;
+	margin: 0;
+	outline: 0 !important;
+	border:  0;
 }
 
 .article-input {
@@ -24,6 +33,19 @@
 
 body{
 	margin: 0;
+	background-color: #FAFAFA;
+}
+
+.wilson{
+	width: 100rem;
+	margin: 0 auto;
+
+}
+
+.william{
+	width: 80rem;
+	margin: 0 auto;
+
 }
 
 /*header*/
@@ -31,20 +53,54 @@ body{
 header{
 	background-color: #b5e7a0;
 	display: flex;
+	height: 6.25rem;
 }
 
-.home-header, .login-header, .signup-header{
-	width: var(--width-ratio);
+.home-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.5rem;
+}
+
+.home-header-icon {
+	flex: 1;
+}
+.home-header,
+.login-header,
+.signup-header{
 	min-width: 500px;
 	margin: auto;
 }
 
+.home-header a{
+	color: white;
+}
+
+a{
+	text-decoration: none;
+}
+
+th{
+	font-size: 2rem;
+}
+
 .home-header-right{
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .search{
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.home-header-upper{
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 
 .home-header-upper-auth{
@@ -56,16 +112,27 @@ header{
 	display: inline-block;
 }
 
+.home-header-bottom-button{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.search-index{
+	height: 1.5rem;
+	padding: 0.5rem;
+	background-color: #AAAAAA;
+	color: white;
+}
+
 /*banner*/
 .home-banner{
-	background-color: yellow;
 	height: 500px;
 }
 
 
 /*main*/
 main{
-	width: var(--width-ratio);
 	margin: auto;
 }
 
