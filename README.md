@@ -1,3 +1,4 @@
+ <h1>#빡공팟, #TeamH4C #P4C</h1>
 메일 인증을 위한 sendmail 사용을 위해, ubuntu를 이용해 실행시켜야 합니다.
 <h2>ubuntu setup</h2>
 php 설치<br>
