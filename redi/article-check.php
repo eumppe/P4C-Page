@@ -30,8 +30,7 @@ $article_id=$conn->insert_id;
 #save file2
 if($_FILES['file']['name']!=null){
 	$uploads_dir = '../uploads/'.$article_id;
-	mkdir(
-	    $uploads_dir, 0777, true, null);
+	mkdir($uploads_dir, 0777, true);
 	move_uploaded_file($tmp_name, "$uploads_dir/$name");
 }
 
