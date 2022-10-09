@@ -31,7 +31,7 @@ if($_POST['request']=='verify-email'){
 
 	mysqli_query($conn,$sql);
 
-	$site_address='localhost:8000';
+	$site_address=$pw=getenv('siteAddress');;
 	$message = '
 	<!DOCTYPE html>
 	<html>
