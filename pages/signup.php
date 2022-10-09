@@ -67,7 +67,7 @@ if($_POST['request']=='verify-email'){
 	<header>
 		<section class="signup-header">
 			<a href="/index.php">
-					<img class=" home-header-icon"src="/img/Eumppe.png"/>
+					<img class=" home-header-icon"src="/img/eumppe.png"/>
 				</a>
 		</section>
 	</header>

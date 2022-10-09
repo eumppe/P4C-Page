@@ -13,7 +13,7 @@ session_start();
 			<header>
 				<section class="home-header wilson">
 					<a href="/index.php">
-						<img class="home-header-icon" src="/img/Eumppe.png"/>
+						<img class="home-header-icon" src="/img/eumppe.png"/>
 					</a>
 					<div class="home-header-right">
 						<div class="home-header-bottom">

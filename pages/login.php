@@ -11,7 +11,7 @@
 	<header>
 		<section class="login-header">
 			<a href="/index.php">
-					<img class=" home-header-icon"src="/img/Eumppe.png"/>
+					<img class=" home-header-icon"src="/img/eumppe.png"/>
 				</a>
 		</section>
 	</header>
