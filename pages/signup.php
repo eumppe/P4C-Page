@@ -31,7 +31,7 @@ if($_POST['request']=='verify-email'){
 
 	mysqli_query($conn,$sql);
 
-	$site_address=getenv('siteAddress');;
+	$site_address=getenv('siteAddress');
 	$message = '
 	<!DOCTYPE html>
 	<html>
