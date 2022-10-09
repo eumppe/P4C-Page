@@ -10,9 +10,9 @@ CREATE table users(
 
 CREATE table emailverify(
 	idx INT PRIMARY KEY AUTO_INCREMENT,
-    email varchar(30),
+    email varchar(30) unique,
     randnum int unique,
-    validfrom timestamp,
+    validfrom timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     verified bool default FALSE
 );
 
