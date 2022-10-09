@@ -49,6 +49,7 @@ export variableName=value
 ```
 
 (비밀번호는 문자열이므로 value를 따옴표로 감싸야 함.)\
+siteAddress에는 ip주소 혹은 도메인을 담아야 합니다.\
 \
 메일 인증을 정상적으로 하기 위해서는 php mail()함수를 쓰기 위한 몇가지 설정이 필요합니다.\
 ubuntu에서는 ssmtp 설치해야 합니다.\
