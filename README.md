@@ -75,7 +75,7 @@ UseTLS=YES
 
 1. ubuntu 터미널을 열어서
 2. 경로를 프로젝트 폴더로 옮기고
-3. sudo php -S localhost:\<port\>
+3. sudo php -S 0.0.0.0:\<port\>
 
 (sudo를 사용하는 이유는 파일 업로드를 위해 mkdir할 권한이 필요하기 때문)\
 (아파치는 쓰지 않습니다.)\
