@@ -509,6 +509,7 @@ footer{
 	background-color: var(--color-c-a);
 	color:white;
 	margin-left: 1rem;
+	font-size: 1.5rem;
 }
 
 .search-choice{
