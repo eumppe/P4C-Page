@@ -1,5 +1,7 @@
 <?php 
 session_start();
+$pw=getenv('MySQLrootPW');
+$conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,16 +45,20 @@ session_start();
 					</div>
 				</section>
 			</header>
-			<div class="home-banner">
-				
-			</div>
 			<main>
+				<div class="home-banner wilson">
+					<img src='/img/banner1.png' alt="banner1">
+				</div>
 				<section class="home-recentnews wilson">
-					<h2>Recent News</h2>
+					<h2>Recent Articles</h2>
 					<ul>
-						<li><a href="">news title 1</a></li>
-						<li><a href="">news title 2</a></li>
-						<li><a href="">news title 3</a></li>
+						<?php
+						$sql="SELECT * FROM articles ORDER BY times DESC LIMIT 5";
+						$result=mysqli_query($conn,$sql);
+						while($row=mysqli_fetch_array($result)){
+							echo("<li><a href='/pages/show-article.php?idx=".$row['idx']."'>".$row['title']."</a></li>");
+						}
+						?>
 					</ul>
 				</section>
 			</main>

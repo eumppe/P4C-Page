@@ -36,7 +36,9 @@
 }
 
 body{
-	margin: 0;
+	min-height: 100vh;
+   display: flex;
+   flex-direction: column;
 	background-color: #FAFAFA;
 }
 
@@ -55,6 +57,7 @@ body{
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 3rem;
 }
 tr {
  	display:flex;
@@ -197,16 +200,24 @@ header{
 	color: white;
 }
 
+/*banner*/
+.home-banner img{
+	width: 100%;
+}
 
 /*main*/
 main{
 	margin: auto;
 }
 
+.home-recentnews{
+	margin: 3rem;
+}
+
 footer{
-	height: 100px;
-	background-color: grey;
-	position: fixed;
+	height: 10rem;
+	background-color: var(--color-a);
+	margin-top: auto;
 }
 
 /*login*/
