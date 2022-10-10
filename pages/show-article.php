@@ -89,8 +89,8 @@ if($update_view){
 			$sql="SELECT * FROM articles WHERE idx=".$idx;
 			$result=mysqli_query($conn, $sql);
 			$row=mysqli_fetch_array($result);
-
 			$forum=$row['forum'];
+			echo('<a href="/pages/article-list.php?forum='.$forum.'"><div class="show-forum">');
 			if($forum==1){
 				echo("<h3>Notice</h3>");
 			}else if($forum==2){
@@ -100,19 +100,24 @@ if($update_view){
 			}else if($forum==4){
 				echo("<h3>Questions</h3>");
 			}
+			echo('</div></a>');
 
 
 			$user_sql="SELECT userid FROM users WHERE idx=".$row['author'];
 			$user_result=mysqli_query($conn,$user_sql);
 			$user_row=mysqli_fetch_array($user_result);
 
-			echo ("<h1>".$row['title']."</h1>");
+			echo ("<div class='show-arcitle-title'>".$row['title']."</div>");
+			echo("<div class='show-arcitle-meta'>");
 			echo ("<p> 작성자: ".$user_row['userid']."</p>");
 			echo ("<p> 작성일: ".$row['times']."</p>");
 			echo ("<p> 조회수: ".$row['views']."</p>");
+			echo('</div><br>');
 
 			if ($row['files']!=null){
+				echo("<div class='show-file'>");
 				echo ("Attached file: <a href='/uploads/".$idx."/".$row['files']."'>".$row['files']."</a>");
+				echo("</div><br>");
 			}
 
 			echo ("<div class='article'> ".nl2br($row['article'])."</div>");
@@ -122,20 +127,21 @@ if($update_view){
 			<!--like-->
 		<form class="like" action="/redi/like-check.php" method="post">
 			<input type="hidden" name="idx" value="<?php echo($idx);?>">
-			<input type="submit" name="like" value="like: <?php echo($total_like);?>" <?php if($i_like){echo("style='background-color: red; color:white;'");}?>>
+			<input class="like-btn" type="submit" name="like" value="like: <?php echo($total_like);?>" <?php if($i_like){echo("style='background-color: red;'");}?>>
 		</form>
 			<!--Comments-->
 			<!--write-->
-		<form action="/redi/comment-check.php" method="post">
+		<form class="comment-write" action="/redi/comment-check.php" method="post">
 			<?php
 			if($_SESSION["userid"]!=null){
 				echo('
 				<input type="hidden" name="idx" value="'. ($_GET['idx']).'">
 				<textarea class="comment-input" name="comment"></textarea><br/>
-				<input type="submit" name="comment-submit">');
+				<input class="comment-submit" type="submit" name="comment-submit" value="작성">');
 			}
 			?>
 		</form>
+			<div class="comments">
 			<!--show-->
 			<?php 
 			$sql="SELECT * FROM comment".$idx;
@@ -145,12 +151,13 @@ if($update_view){
 				$user_sql="SELECT userid FROM users WHERE idx=".$row['writer'];
 				$user_result=mysqli_query($conn,$user_sql);
 				$user_row=mysqli_fetch_array($user_result);
-				echo("<div class='comment-single'><p class='comment-userid'>".$user_row['userid'].
-					" | ".$row['times']."</p>");
-				echo("<p class='comment-content'>".$row['content']."</p></div>");
+				echo("<div class='comment-single'><div class='comment-meta'><p class='comment-userid'>".$user_row['userid'].
+					"</p><p class='comment-times'>".$row['times']."</p></div>");
+				echo("<p class='comment-content'>".$row['content']."</p></div>
+					<hr>");
 			}
-
 			?>
+			</div>
 		</main>
 		<footer>
 			

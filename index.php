@@ -12,6 +12,7 @@ $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 		<link rel="stylesheet" href="./css/main.css" type="text/css">
 	</head>
 	<body>
+		<div>
 			<header>
 				<section class="home-header wilson">
 					<a href="/index.php">
@@ -56,12 +57,13 @@ $conn=mysqli_connect('127.0.0.1','root', $pw,'eumppedb');
 						$sql="SELECT * FROM articles ORDER BY times DESC LIMIT 5";
 						$result=mysqli_query($conn,$sql);
 						while($row=mysqli_fetch_array($result)){
-							echo("<li><a href='/pages/show-article.php?idx=".$row['idx']."'>".$row['title']."</a></li>");
+							echo("<li><a href='/pages/show-article.php?idx=".$row['idx']."'>".$row['times']." | ".$row['title']."</a></li>");
 						}
 						?>
 					</ul>
 				</section>
 			</main>
+		</div>
 			<footer>
 				
 			</footer>
