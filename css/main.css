@@ -1,5 +1,9 @@
 :root{
-	--width-ratio: 75%;
+	--color-a: #d5e1df;
+	--color-b: #e3eaa7;
+	--color-c: #b5e7a0;
+	--color-c-a: #95c780;
+	--color-d: #86af49;
 }
 
 
@@ -37,21 +41,93 @@ body{
 }
 
 .wilson{
-	width: 100rem;
-	margin: 0 auto;
-
-}
-
-.william{
 	width: 80rem;
 	margin: 0 auto;
 
 }
 
+.william{
+	width: 60rem;
+	margin: 0 auto;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+tr {
+ 	display:flex;
+ 	flex-wrap:wrap;
+
+}
+.list-content:hover {
+	background-color: var(--color-c);
+	color: white;
+	font-weight: bold;
+}
+td,th{
+    border-bottom: 1px solid var(--color-a);
+    padding: 10px;
+    display: flex;
+    flex: 1;
+  }
+
+th{
+	font-size: 1.5rem;
+}
+
+
+.table-title{
+	flex: 2;
+}
+.table-times{
+	flex: 1.5;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	text-decoration: none;
+	color: var(--color-d);
+}
+
+.list-top{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2rem;
+}
+
+.write{
+	display: flex;
+	font-size: 1.5rem;
+	margin: 0 4rem;
+	color: white;
+	background-color: var(--color-c-a);
+	padding: 0.5rem;
+	border-radius: 0.6rem;
+	height: 2.7rem;
+	align-items: center;
+}
+.write:hover{
+	color: var(--color-a);
+}
+
+
+.list-forum{
+	display: flex;
+	font-size: 3rem;
+	color: var(--color-c-a);
+}
+
 /*header*/
 
 header{
-	background-color: #b5e7a0;
+	background-color: var(--color-c);
 	display: flex;
 	height: 6.25rem;
 }
@@ -69,21 +145,17 @@ header{
 .home-header,
 .login-header,
 .signup-header{
-	min-width: 500px;
 	margin: auto;
 }
 
 .home-header a{
 	color: white;
 }
-
-a{
-	text-decoration: none;
+.home-header a:hover{
+	color: var(--color-c-a);
 }
 
-th{
-	font-size: 2rem;
-}
+
 
 .home-header-right{
 	display: flex;
@@ -123,11 +195,6 @@ th{
 	padding: 0.5rem;
 	background-color: #AAAAAA;
 	color: white;
-}
-
-/*banner*/
-.home-banner{
-	height: 500px;
 }
 
 

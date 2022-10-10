@@ -47,49 +47,56 @@ $forum=$_GET['forum'];
 				</section>
 			</header>
 		<main class="william">
-			<a href=<?php echo("'/pages/write-article.php?forum=".$forum."'");?>>write</a>
-			<table style="width:100%">
+			<div class="list-top">
 				<?php
 				if($forum==1){
-					echo("<th>Notice</th>");
+					echo("<h2 class='list-forum'>Notice</h2>");
 				}else if($forum==2){
-					echo("<th>Community</th>");
+					echo("<h2 class='list-forum'>Community</h2>");
 				}else if($forum==3){
-					echo("<th>Random</th>");
+					echo("<h2 class='list-forum'>Random</h2>");
 				}else if($forum==4){
-					echo("<th>Questions</th>");
+					echo("<h2 class='list-forum'>Questions</h2>");
 				}
+				?>
+				<a class='write' href=<?php echo("'/pages/write-article.php?forum=".$forum."'");?>>write</a>
+			</div>
+			<table style="width:100%">
+				<th class='table-title'>제목</th>
+				<th class='table-author'>작성자</th>
+				<th class='table-views'>조회수</th>
+				<th class='table-times'>작성일</th>
+				<?php
 
 				$sql="SELECT * FROM articles WHERE forum=".$forum." ORDER BY times DESC";
 				$result=mysqli_query($conn,$sql);
 
 				while($row=mysqli_fetch_array($result)){
 
-					echo("<tr>");
+					echo("<tr class='list-content' onClick='location.href=\"/pages/show-article.php?idx=".$row['idx']."\"'>");
 
-					echo("<td>");
-					echo("<a href=\"/pages/show-article.php?idx=".$row['idx']."\">");
+					echo("<td class='table-title'>");
+					#echo("<a href=\"/pages/show-article.php?idx=".$row['idx']."\">");
 					echo($row['title']);
-					echo("</a>");
+					#echo("</a>");
 					echo("</td>");
 
 					$user_sql="SELECT userid FROM users WHERE idx=".$row['author'];
 					$user_result=mysqli_query($conn,$user_sql);
 					$user_row=mysqli_fetch_array($user_result);
 
-					echo("<td>");	
-					echo("작성자 : ".$user_row['userid']);
+					echo("<td class='table-author'>");	
+					echo($user_row['userid']);
 					echo("</td>");
 
-					echo("<td>");
-					echo("조회수 : ".$row['views']);
+					echo("<td class='table-views'>");
+					echo($row['views']);
 					echo("</td>");
 
-					echo("<td>");	
+					echo("<td class='table-times'>");	
 					echo($row['times']);
 					echo("</td>");
 
-					echo("</a>");
 					echo("</tr>");
 				}
 				?>
