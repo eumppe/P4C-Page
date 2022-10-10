@@ -72,22 +72,25 @@ if($_POST['request']=='verify-email'){
 		</section>
 	</header>
 	<main>
-		<fieldset>
-			<legend>Signup</legend>
-			<fieldset <?php if($verified){echo ('disabled');}?>>
+		<fieldset class="signup-fieldset">
+			<legend class="signup-legend"> Signup </legend>
+			<fieldset class="email-fieldset" <?php if($verified){echo ('disabled');}?>>
 				<form class="verify-email" action="/pages/signup.php" method="post">
 					<input type="hidden" name="request" value="verify-email">
-					<input type="email" name="email" placeholder="email" value="<?php echo($email)?>" required>
-					<input type="submit" name="verify-email" value="verify">
-					<?php echo("<p>".$email_msg."</p>");?>
+					<input class="signup-email" type="email" name="email" placeholder="email" value="<?php echo($email)?>" required>
+					<input class="signup-email-submit" type="submit" name="verify-email" value="verify">
 				</form>
+				<?php echo("<div class='email-msg'>".$email_msg."</div>");?>
 			</fieldset>
+			<hr class="signup-hr">
 			<fieldset <?php if(!$verified){echo ('disabled');}?>>
-				<form class="login-info" action="/redi/signup-check.php" method="post" disabled="true">
+				<form class="signup-info" action="/redi/signup-check.php" method="post" disabled="true">
 					<input type="hidden" name="email" value="<?php echo($email)?>">
-					<input type="text" name="userid" placeholder="userid" required><br/>
-					<input type="password" name="password" placeholder="password" required><br/>
-					<input type="submit" name="login-submit">
+					<div class="signup-account-info">
+						<input class="signup-userid" type="text" name="userid" placeholder="userid" required>
+						<input class="signup-password" type="password" name="password" placeholder="password" required>
+					</div>
+					<input class="signup-final-submit" type="submit" name="login-submit" value="sign up">
 				</form>
 			</fieldset>
 		</fieldset>

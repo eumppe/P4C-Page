@@ -16,15 +16,17 @@
 		</section>
 	</header>
 	<main>
-		<form class="login-info" action="/redi/login-check.php" method="post">
-			<fieldset>
-				<legend>Login</legend>
-				<input type="text" name="userid" placeholder="userid">
-				<input type="password" name="password" placeholder="password">
-				<input type="submit" name="login-submit">
-				<p><?php echo ($_GET['msg'])?></p>
-			</fieldset>
-		</form>
+		<fieldset class="login-fieldset">
+			<legend class="login-legend">Login</legend>
+			<form class="login-info" action="/redi/login-check.php" method="post">
+				<div class="login-account-info">
+					<input class="login-userid" type="text" name="userid" placeholder="userid">
+					<input class="login-userid" type="password" name="password" placeholder="password">
+				</div>
+				<input class="login-final-submit" type="submit" name="login-submit" value="Login">
+			</form>
+			<p><?php echo ("<div class='login-msg'>".$_GET['msg']."</div>")?></p>
+		</fieldset>
 	</main>
 </body>
 </html>
