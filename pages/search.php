@@ -50,20 +50,26 @@ $forum_list=['','Notice', 'Community', 'Random', 'Questions'];
 			</header>
 		<main class="william">
 			<form class="search-main" action="/pages/search.php" method="get">
-				<input type="text" name="search-keyword" <?php echo("value='".$search_keyword)."'";?>>
-				<input type="submit" name="search-submit">
-				<h4>forum</h4>
-				<label><input type="radio" name="forum" value="5" id="choice2" <?php if($forum==5 || $forum==null){echo("checked");}?>>All</label>
-				<label><input type="radio" name="forum" value="1" id="choice1" <?php if($forum==1){echo("checked");}?>>Notice</label>
-				<label><input type="radio" name="forum" value="2" id="choice2" <?php if($forum==2){echo("checked");}?>>Community</label>
-				<label><input type="radio" name="forum" value="3" id="choice1" <?php if($forum==3){echo("checked");}?>>Random</label>
-				<label><input type="radio" name="forum" value="4" id="choice2" <?php if($forum==4){echo("checked");}?>>Questions</label>
-				<br/>
-				<h4>검색 기준</h4>
-				<label><input type="radio" name="search_type" value="3" id="choice2" <?php if($search_type==3|| $search_type==null){echo("checked");}?>>제목, 내용</label>
-				<label><input type="radio" name="search_type" value="1" id="choice2" <?php if($search_type==1){echo("checked");}?>>제목</label>
-				<label><input type="radio" name="search_type" value="2" id="choice2" <?php if($search_type==2){echo("checked");}?>>내용</label>
-				<br/>
+				<div class="search-input">
+					<input class="search-input-text" type="text" name="search-keyword" <?php echo("value='".$search_keyword)."'";?>>
+					<input class="search-input-submit" type="submit" name="search-submit" value="검색">
+				</div>
+				<div class="search-choice">
+					<div class="search-forum">
+						<div class="search-forum-text">forum</div>
+						<label><input type="radio" name="forum" value="5" id="choice2" <?php if($forum==5 || $forum==null){echo("checked");}?>>All</label>
+						<label><input type="radio" name="forum" value="1" id="choice1" <?php if($forum==1){echo("checked");}?>>Notice</label>
+						<label><input type="radio" name="forum" value="2" id="choice2" <?php if($forum==2){echo("checked");}?>>Community</label>
+						<label><input type="radio" name="forum" value="3" id="choice1" <?php if($forum==3){echo("checked");}?>>Random</label>
+						<label><input type="radio" name="forum" value="4" id="choice2" <?php if($forum==4){echo("checked");}?>>Questions</label>
+					</div>
+					<div class="search-type">
+						<div class="search-type-text">검색 기준</div>
+						<label><input type="radio" name="search_type" value="3" id="choice2" <?php if($search_type==3|| $search_type==null){echo("checked");}?>>제목, 내용</label>
+						<label><input type="radio" name="search_type" value="1" id="choice2" <?php if($search_type==1){echo("checked");}?>>제목</label>
+						<label><input type="radio" name="search_type" value="2" id="choice2" <?php if($search_type==2){echo("checked");}?>>내용</label>
+					</div>
+				</div>
 			</form>
 			<?php
 				#processing search
